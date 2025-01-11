@@ -1,0 +1,73 @@
+[
+    {
+      "id": "txn001",
+      "beneficiario": "Juan Pérez",
+      "monto": 150.50,
+      "fecha": "10/01/2025",
+      "timestamp": "2025-01-10T12:00:00Z"
+    },
+    {
+      "id": "txn002",
+      "beneficiario": "María González",
+      "monto": 200.75,
+      "fecha": "09/01/2025",
+      "timestamp": "2025-01-09T15:30:00Z"
+    },
+    {
+      "id": "txn003",
+      "beneficiario": "Carlos Rodríguez",
+      "monto": 300.00,
+      "fecha": "08/01/2025",
+      "timestamp": "2025-01-08T09:15:00Z"
+    },
+    {
+      "id": "txn004",
+      "beneficiario": "Laura Fernández",
+      "monto": 450.25,
+      "fecha": "07/01/2025",
+      "timestamp": "2025-01-07T18:45:00Z"
+    },
+    {
+      "id": "txn005",
+      "beneficiario": "Ana López",
+      "monto": 100.00,
+      "fecha": "06/01/2025",
+      "timestamp": "2025-01-06T20:00:00Z"
+    },
+    {
+      "id": "txn006",
+      "beneficiario": "Pedro Martínez",
+      "monto": 750.90,
+      "fecha": "05/01/2025",
+      "timestamp": "2025-01-05T11:20:00Z"
+    },
+    {
+      "id": "txn007",
+      "beneficiario": "Sofía Ramírez",
+      "monto": 50.25,
+      "fecha": "04/01/2025",
+      "timestamp": "2025-01-04T14:30:00Z"
+    },
+    {
+      "id": "txn008",
+      "beneficiario": "Andrés Castro",
+      "monto": 1200.00,
+      "fecha": "03/01/2025",
+      "timestamp": "2025-01-03T08:00:00Z"
+    },
+    {
+      "id": "txn009",
+      "beneficiario": "Elena Díaz",
+      "monto": 600.00,
+      "fecha": "02/01/2025",
+      "timestamp": "2025-01-02T17:50:00Z"
+    },
+    {
+      "id": "txn010",
+      "beneficiario": "Luis Morales",
+      "monto": 250.30,
+      "fecha": "01/01/2025",
+      "timestamp": "2025-01-01T22:15:00Z"
+    }
+  ]
+  
