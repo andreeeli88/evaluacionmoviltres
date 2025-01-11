@@ -1,4 +1,5 @@
 import 'package:evaluacion_final/screens/cuenta.dart';
+import 'package:evaluacion_final/screens/transaccion.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -12,7 +13,7 @@ class Login extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 233, 152, 209), 
+        backgroundColor: const Color.fromARGB(255, 233, 152, 209),
         title: const Text(
           "Iniciar sesión",
           style: TextStyle(
@@ -28,7 +29,6 @@ class Login extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              
               TextField(
                 controller: emailController,
                 decoration: const InputDecoration(
@@ -41,7 +41,6 @@ class Login extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              
               TextField(
                 controller: passwordController,
                 decoration: const InputDecoration(
@@ -58,9 +57,9 @@ class Login extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 160, 117, 147),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10), 
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 15), 
+                  padding: EdgeInsets.symmetric(vertical: 15),
                   elevation: 5,
                 ),
                 onPressed: () async {
@@ -69,20 +68,26 @@ class Login extends StatelessWidget {
 
                   if (email.isNotEmpty && password.isNotEmpty) {
                     try {
+                     
                       await loginUser(email, password);
-                      Navigator.push(
+
+                      
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(builder: (context) => const Cuenta()),
                       );
+
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text("Bienvenido, $email")),
                       );
                     } catch (e) {
+                     
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text("Error: $e")),
                       );
                     }
                   } else {
+                    // Mostrar mensaje si los campos están vacíos
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text("Por favor, completa los campos")),
                     );
@@ -103,15 +108,18 @@ class Login extends StatelessWidget {
 
 Future<void> loginUser(String correo, String pass) async {
   try {
+   
     final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
       email: correo,
       password: pass,
     );
   } on FirebaseAuthException catch (e) {
     if (e.code == 'user-not-found') {
-      print('No user found for that email.');
+      throw 'No se encontró un usuario con ese correo electrónico';
     } else if (e.code == 'wrong-password') {
-      print('Wrong password provided for that user.');
+      throw 'Contraseña incorrecta para ese usuario';
+    } else {
+      throw 'Error desconocido: ${e.message}';
     }
   }
 }

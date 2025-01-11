@@ -45,7 +45,7 @@ class _TransaccionState extends State<Transaccion> {
         'monto': montoValor,
       };
 
-      // Guardar en Firebase usando la referencia directa
+    
       ref.child('transacciones').push().set(transaccion).then((_) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text("Transacción guardada con éxito"),
@@ -105,7 +105,7 @@ class _TransaccionState extends State<Transaccion> {
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
               ),
               SizedBox(height: 20),
-              // Botón para guardar la transacción
+           
               ElevatedButton(
                 onPressed: guardarTransaccion,
                 child: Text("Guardar transacción"),
